@@ -17,11 +17,12 @@ string triangleType(int a,int b,int c){
 		return "Not a triangle";
 	}
 
-	if(a == b){
-		if(b == c){
-			return "Equilateral";		
+	if(a == b || b == c || a == c){
+		if(a == b && b == c){
+			return "Equilateral";   
 		}
 		return "Isosceles";
 	}
+	
 	return "Scalene";
 }
