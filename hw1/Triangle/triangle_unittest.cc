@@ -54,4 +54,36 @@ namespace {
 		EXPECT_EQ("Not a triangle", triangleType(1,200,199));
 		EXPECT_EQ("Isosceles", triangleType(1,200,200));
 	}	
+
+	TEST(EquivalenceClassTesting, WeakNormal) {
+		// This test is named "WeakNormal", and belongs to the "EquivalenceClassTesting"
+		// test case.
+		EXPECT_EQ("Equilateral", triangleType(5,5,5));
+		EXPECT_EQ("Isosceles", triangleType(2,2,3));
+		EXPECT_EQ("Scalene", triangleType(3,4,5));
+		EXPECT_EQ("Not a triangle", triangleType(4,1,2));
+	}
+
+	TEST(EquivalenceClassTesting, WeakRobust) {
+		// This test is named "WeakRobust", and belongs to the "EquivalenceClassTesting"
+		// test case.
+		EXPECT_EQ("Value of a is not in he range of permitted values", triangleType(-1,5,5));
+		EXPECT_EQ("Value of b is not in he range of permitted values", triangleType(5,-1,5));
+		EXPECT_EQ("Value of c is not in he range of permitted values", triangleType(5,5,-1));
+		EXPECT_EQ("Value of a is not in he range of permitted values", triangleType(201,5,5));
+		EXPECT_EQ("Value of b is not in he range of permitted values", triangleType(5,201,5));
+		EXPECT_EQ("Value of c is not in he range of permitted values", triangleType(5,5,201));
+	}
+
+	TEST(EquivalenceClassTesting, StrongWeakRobust) {
+		// This test is named "WeakRobust", and belongs to the "EquivalenceClassTesting"
+		// test case.
+		EXPECT_EQ("Value of a is not in he range of permitted values", triangleType(-1,5,5));
+		EXPECT_EQ("Value of b is not in he range of permitted values", triangleType(5,-1,5));
+		EXPECT_EQ("Value of c is not in he range of permitted values", triangleType(5,5,-1));
+		EXPECT_EQ("Value of a,b is not in he range of permitted values", triangleType(-1,-1,5));
+		EXPECT_EQ("Value of b,c is not in he range of permitted values", triangleType(5,-1,-1));
+		EXPECT_EQ("Value of a,c is not in he range of permitted values", triangleType(-1,5,-1));
+		EXPECT_EQ("Value of a,b,c is not in he range of permitted values", triangleType(-1,-1,-1));
+	}
 }

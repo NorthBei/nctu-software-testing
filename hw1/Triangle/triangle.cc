@@ -12,8 +12,9 @@ bool isSlideValid(int a,int b,int c){
 }
 
 string triangleType(int a,int b,int c){
+
 	if(!isRangeValid(a) || !isRangeValid(b) || !isRangeValid(c) || !isSlideValid(a,b,c) || !isSlideValid(b,a,c) || !isSlideValid(c,b,a)){
-		//有一個條件是false，就不可能形成三角形
+		//輸入的數值要在規範(1~200)內
 		return "Not a triangle";
 	}
 
