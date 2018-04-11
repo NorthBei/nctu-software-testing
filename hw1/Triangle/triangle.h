@@ -1,4 +1,5 @@
 #include <string>
+#include<vector>
 using namespace std; 
 
 #ifndef GTEST_TRIANGLE_H_
