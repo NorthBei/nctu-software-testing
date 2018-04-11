@@ -12,11 +12,9 @@ namespace {
 		EXPECT_EQ("Not a triangle", triangleType(100,100,200));
 		EXPECT_EQ("Isosceles", triangleType(100,1,100));
 		EXPECT_EQ("Isosceles", triangleType(100,2,100));
-		EXPECT_EQ("Isosceles", triangleType(100,100,100));
-		EXPECT_EQ("Isosceles", triangleType(100,100,2));
-		EXPECT_EQ("Equilateral", triangleType(100,100,2));
+		EXPECT_EQ("Equilateral", triangleType(100,100,100));
 
-		EXPECT_EQ("Isosceles", triangleType(100,99,100));
+		EXPECT_EQ("Isosceles", triangleType(100,199,100));
 		EXPECT_EQ("Not a triangle", triangleType(100,200,100));
 		EXPECT_EQ("Isosceles", triangleType(1,100,100));
 		EXPECT_EQ("Isosceles", triangleType(2,100,100));
