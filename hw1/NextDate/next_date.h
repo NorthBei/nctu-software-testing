@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 using namespace std; 
 
 #ifndef GTEST_NEXT_DATE_H_
