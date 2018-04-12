@@ -75,8 +75,8 @@ namespace {
 		EXPECT_EQ("Value of c is not in he range of permitted values", triangleType(5,5,201));
 	}
 
-	TEST(EquivalenceClassTesting, StrongWeakRobust) {
-		// This test is named "WeakRobust", and belongs to the "EquivalenceClassTesting"
+	TEST(EquivalenceClassTesting, StronRobust) {
+		// This test is named "StronRobust", and belongs to the "EquivalenceClassTesting"
 		// test case.
 		EXPECT_EQ("Value of a is not in he range of permitted values", triangleType(-1,5,5));
 		EXPECT_EQ("Value of b is not in he range of permitted values", triangleType(5,-1,5));
