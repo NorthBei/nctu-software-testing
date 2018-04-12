@@ -46,12 +46,12 @@ namespace {
 		// This test is named "WeakRobust", and belongs to the "EquivalenceClassTesting"
 		// test case.
 		EXPECT_EQ("6,15,1912", getNextDate(6,16,1912));
-		EXPECT_EQ("month not in 1 … 12", getNextDate(-1,15,1912));
-		EXPECT_EQ("month not in 1 … 12", getNextDate(13,15,1912));
-		EXPECT_EQ("day not in 1 … 31", getNextDate(6,-1,1912));
-		EXPECT_EQ("day not in 1 … 31", getNextDate(6,32,1912));
-		EXPECT_EQ("year not in 1812 … 2012", getNextDate(6,15,1811));
-		EXPECT_EQ("year not in 1812 … 2012", getNextDate(6,15,2013));
+		EXPECT_EQ("Invalid input date", getNextDate(-1,15,1912));
+		EXPECT_EQ("Invalid input date", getNextDate(13,15,1912));
+		EXPECT_EQ("Invalid input date", getNextDate(6,-1,1912));
+		EXPECT_EQ("Invalid input date", getNextDate(6,32,1912));
+		EXPECT_EQ("Invalid input date", getNextDate(6,15,1811));
+		EXPECT_EQ("Invalid input date", getNextDate(6,15,2013));
 	}
 
 	TEST(EquivalenceClassTesting, StrongNormal) {
@@ -85,28 +85,28 @@ namespace {
 		EXPECT_EQ("7,31,1996", getNextDate(7,30,1996));
 	}
 
+	TEST(EquivalenceClassTesting, StrongRobust) {
+		// This test is named "StrongRobust", and belongs to the "EquivalenceClassTesting"
+		// test case.
+		EXPECT_EQ("Invalid input date", getNextDate(-1,15,1912));
+		EXPECT_EQ("Invalid input date", getNextDate(6,-1,1912));
+		EXPECT_EQ("Invalid input date", getNextDate(6,15,1811));
+
+		EXPECT_EQ("Invalid input date", getNextDate(-1,-1,1912));
+		EXPECT_EQ("Invalid input date", getNextDate(6,-1,1811));
+		EXPECT_EQ("Invalid input date", getNextDate(-1,15,1811));
+		EXPECT_EQ("Invalid input date", getNextDate(-1,-1,1811));
+	}
+
 	TEST(EdgeValueTesting, Test){
 		// This test is named "Test", and belongs to the "EdgeValueTesting"
 		// test case.
 		EXPECT_EQ("3,1,1900", getNextDate(2, 28, 1900));
-	    EXPECT_EQ("Invalid date", getNextDate(2, 29, 2001));
-	    EXPECT_EQ("Invalid date", getNextDate(2, 30, 2001));
-	    EXPECT_EQ("Invalid date", getNextDate(6, 31, 2001));
-	    EXPECT_EQ("Invalid date", getNextDate(2, 29, 1900));
-	    EXPECT_EQ("Invalid date", getNextDate(2, 30, 1900));
-	}
-
-	TEST(EquivalenceClassTesting, StrongRobust) {
-		// This test is named "StrongRobust", and belongs to the "EquivalenceClassTesting"
-		// test case.
-		EXPECT_EQ("month not in 1...12", getNextDate(-1,15,1912));
-		EXPECT_EQ("day not in 1...31", getNextDate(6,-1,1912));
-		EXPECT_EQ("year not in 1812 … 2012", getNextDate(6,15,1811));
-
-		EXPECT_EQ("month not in 1... 31\nday not in 1...31", getNextDate(-1,-1,1912));
-		EXPECT_EQ("day not in 1...31\nyear not in 1812 … 2012", getNextDate(6,-1,1811));
-		EXPECT_EQ("month not in 1... 31\nyear not in 1812 … 2012", getNextDate(-1,15,1811));
-		EXPECT_EQ("month not in 1...12\nday not in 1...31\nyear not in 1812 … 2012", getNextDate(-1,-1,1811));
+	    EXPECT_EQ("Invalid input date", getNextDate(2, 29, 2001));
+	    EXPECT_EQ("Invalid input date", getNextDate(2, 30, 2001));
+	    EXPECT_EQ("Invalid input date", getNextDate(6, 31, 2001));
+	    EXPECT_EQ("Invalid input date", getNextDate(2, 29, 1900));
+	    EXPECT_EQ("Invalid input date", getNextDate(2, 30, 1900));
 	}
 	
 	TEST(DecisionTableTesting, Test) {
