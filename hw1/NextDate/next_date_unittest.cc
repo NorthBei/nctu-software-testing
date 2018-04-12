@@ -121,9 +121,9 @@ namespace {
 		EXPECT_EQ("2,1,2001", getNextDate(1,31,2001));
 		EXPECT_EQ("12,16,2001", getNextDate(12,15,2001));
 		EXPECT_EQ("1,1,2002", getNextDate(12,31,2001));
-		EXPECT_EQ("2,16,2002", getNextDate(2,15,2001));
+		EXPECT_EQ("2,16,2001", getNextDate(2,15,2001));
 		EXPECT_EQ("2,29,2004", getNextDate(2,28,2004));
-		EXPECT_EQ("3,1,2004", getNextDate(2,28,2001));
+		EXPECT_EQ("3,1,2001", getNextDate(2,28,2001));
 		EXPECT_EQ("Invalid input date", getNextDate(2,29,2001));
 		EXPECT_EQ("Invalid input date", getNextDate(2,30,2001));
 
