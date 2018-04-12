@@ -86,4 +86,17 @@ namespace {
 		EXPECT_EQ("Value of a,c is not in he range of permitted values", triangleType(-1,5,-1));
 		EXPECT_EQ("Value of a,b,c is not in he range of permitted values", triangleType(-1,-1,-1));
 	}
+
+	TEST(DecisionTableTesting, Test) {
+		// This test is named "Test", and belongs to the "DecisionTableTesting"
+		// test case.
+		EXPECT_EQ("Not a triangle", triangleType(4,1,2));
+		EXPECT_EQ("Not a triangle", triangleType(1,4,2));
+		EXPECT_EQ("Not a triangle", triangleType(1,2,4));
+		EXPECT_EQ("Equilateral", triangleType(5,5,5));
+		EXPECT_EQ("Isosceles", triangleType(2,2,3));
+		EXPECT_EQ("Isosceles", triangleType(2,3,2));
+		EXPECT_EQ("Isosceles", triangleType(3,2,2));
+		EXPECT_EQ("Scalene", triangleType(3,4,5));
+	}
 }
