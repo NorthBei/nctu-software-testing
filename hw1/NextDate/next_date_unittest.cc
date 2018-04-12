@@ -85,7 +85,18 @@ namespace {
 		EXPECT_EQ("7,31,1996", getNextDate(7,30,1996));
 	}
 
-		TEST(EquivalenceClassTesting, StrongRobust) {
+	TEST(EdgeValueTesting, Test){
+		// This test is named "Test", and belongs to the "EdgeValueTesting"
+		// test case.
+		EXPECT_EQ("3,1,1900", getNextDate(2, 28, 1900));
+	    EXPECT_EQ("Invalid date", getNextDate(2, 29, 2001));
+	    EXPECT_EQ("Invalid date", getNextDate(2, 30, 2001));
+	    EXPECT_EQ("Invalid date", getNextDate(6, 31, 2001));
+	    EXPECT_EQ("Invalid date", getNextDate(2, 29, 1900));
+	    EXPECT_EQ("Invalid date", getNextDate(2, 30, 1900));
+	}
+
+	TEST(EquivalenceClassTesting, StrongRobust) {
 		// This test is named "StrongRobust", and belongs to the "EquivalenceClassTesting"
 		// test case.
 		EXPECT_EQ("month not in 1...12", getNextDate(-1,15,1912));
