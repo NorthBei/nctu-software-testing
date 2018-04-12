@@ -17,9 +17,9 @@ namespace {
 		EXPECT_EQ("1,3,2011", getNextDate(1,2,2011));
 		EXPECT_EQ("1,3,2012", getNextDate(1,2,2012));
 
-		EXPECT_EQ("1,15,1812", getNextDate(1,16,1812));
+		EXPECT_EQ("1,16,1812", getNextDate(1,15,1812));
 		EXPECT_EQ("1,16,1813", getNextDate(1,15,1813));
-		EXPECT_EQ("1,16,1813", getNextDate(1,15,1912));
+		EXPECT_EQ("1,16,1912", getNextDate(1,15,1912));
 		EXPECT_EQ("1,16,2011", getNextDate(1,15,2011));
 		EXPECT_EQ("1,16,2012", getNextDate(1,15,2012));
 
@@ -45,7 +45,7 @@ namespace {
 	TEST(EquivalenceClassTesting, WeakRobust) {
 		// This test is named "WeakRobust", and belongs to the "EquivalenceClassTesting"
 		// test case.
-		EXPECT_EQ("6,15,1912", getNextDate(6,16,1912));
+		EXPECT_EQ("6,16,1912", getNextDate(6,15,1912));
 		EXPECT_EQ("Invalid input date", getNextDate(-1,15,1912));
 		EXPECT_EQ("Invalid input date", getNextDate(13,15,1912));
 		EXPECT_EQ("Invalid input date", getNextDate(6,-1,1912));
@@ -68,8 +68,7 @@ namespace {
 		EXPECT_EQ("7,1,2000", getNextDate(6,30,2000));
 		EXPECT_EQ("7,1,1996", getNextDate(6,30,1996));
 
-		EXPECT_EQ("Invalid input date", getNextDate(6,30,2002));
-		EXPECT_EQ("Invalid input date", getNextDate(6,30,2000));
+		EXPECT_EQ("7,1,2002", getNextDate(6,30,2002));
 		EXPECT_EQ("Invalid input date", getNextDate(6,31,1996));
 		EXPECT_EQ("Invalid input date", getNextDate(6,31,2002));
 
