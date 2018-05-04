@@ -14,9 +14,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'make -C ./hw1/Triangle test'
-                sh 'make -C ./hw1/NextDate test'
-                sh 'make -C ./hw1/CommissionProblem test'
+                sh 'make -C ./hw1/Triangle triangle_unittest'
+                sh 'make -C ./hw1/NextDate next_date_unittest'
+                sh 'make -C ./hw1/CommissionProblem commission_unittest'
             }
         }
     }
