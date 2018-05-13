@@ -2,6 +2,8 @@
 
 NCTU Software Testing Course in 2018 Spring 
 
+[![Build Status](https://travis-ci.org/NorthBei/nctu-software-testing.svg?branch=master)](https://travis-ci.org/NorthBei/nctu-software-testing)
+
 ## Homework1 - A simple practice on xUnit testing framework and TDD
 
 Google xUint 教學
