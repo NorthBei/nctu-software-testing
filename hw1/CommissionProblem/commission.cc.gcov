@@ -1,0 +1,42 @@
+        -:    0:Source:commission.cc
+        -:    0:Graph:commission.gcno
+        -:    0:Data:commission.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "commission.h"
+        -:    2:#include <sstream>
+        -:    3:#include <string>
+        -:    4:
+        -:    5:using namespace std; 
+        -:    6:
+      361:    7:string calcCommission(int locks, int stocks, int barrels){
+      361:    8:	const float LOCK_PRICE = 45.0f;
+      361:    9:	const float STOCK_PRICE = 30.0f;
+      361:   10:	const float BARREL_PRICE = 25.0f;
+        -:   11:
+        -:   12:    float result;
+        -:   13:    
+      361:   14:    if(locks == -1)
+        2:   15:        return "Program terminates";
+      359:   16:    if( (locks < 1 || locks > 70) || (stocks < 1 || stocks > 80) || (barrels < 1 || barrels > 90))
+      233:   17:        return "Invalid items' amount";
+        -:   18:
+      126:   19:    float lockSales = locks*LOCK_PRICE;
+      126:   20:    float stockSales = STOCK_PRICE * stocks;
+      126:   21:    float barrelSales = BARREL_PRICE * barrels;
+      126:   22:    float sales = lockSales + stockSales + barrelSales;
+        -:   23:
+      126:   24:    if(sales > 1800.0){
+      105:   25:        result = 0.10*1000.0 + 0.15*800.0 + 0.2*(sales - 1800.0);
+        -:   26:    }
+       21:   27:    else if(sales > 1000.0){
+       12:   28:        result = 0.10*1000.0 + 0.15*(sales - 1000.0);
+        -:   29:    }
+        -:   30:    else{
+        9:   31:        result = 0.10*sales;
+        -:   32:    }
+        -:   33:    
+      252:   34:    stringstream ss;
+      126:   35:	ss << result;
+      126:   36:    return ss.str();
+        -:   37:}

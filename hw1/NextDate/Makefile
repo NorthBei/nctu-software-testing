@@ -89,4 +89,4 @@ test : next_date_unittest
 	./next_date_unittest
 
 gcov : next_date_unittest
-	gcov next_date_unittest.cc
+	gcov next_date.cc

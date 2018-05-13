@@ -1,0 +1,54 @@
+        -:    0:Source:triangle.cc
+        -:    0:Graph:triangle.gcno
+        -:    0:Data:triangle.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "triangle.h"
+        -:    2:#include <string>
+        -:    3:#include<vector>
+        -:    4:
+        -:    5:using namespace std; 
+        -:    6:
+      195:    7:bool isRangeValid(int slide){
+        -:    8:	//輸入的數值要在規範(1~200)內
+      195:    9:	return (slide >= 1) && (slide <= 200) ? true : false;
+        -:   10:}
+        -:   11:
+      138:   12:bool isSlideValid(int a,int b,int c){
+      138:   13:	return a<(b+c);
+        -:   14:}
+        -:   15:
+       65:   16:vector<string> isInputValid(int a,int b,int c){
+       65:   17:	vector<string> array;
+        -:   18:
+       65:   19:	if(!isRangeValid(a)){array.push_back("a");}
+       65:   20:	if(!isRangeValid(b)){array.push_back("b");}
+       65:   21:	if(!isRangeValid(c)){array.push_back("c");}
+        -:   22:
+       65:   23:	return array;
+        -:   24:}
+        -:   25:
+       65:   26:string triangleType(int a,int b,int c){
+      130:   27:	vector<string> list = isInputValid(a,b,c);
+       65:   28:	if(!list.empty()){
+       26:   29:		string slides;
+       13:   30:		int size = list.size();
+       31:   31:		for(int i = 0; i< size;i++){
+       18:   32:			slides += (i == size-1 ? list[i] : list[i]+",");
+        -:   33:		}
+       13:   34:		return "Value of "+slides+" is not in he range of permitted values";
+        -:   35:	}
+        -:   36:
+       52:   37:	if(!isSlideValid(a,b,c) || !isSlideValid(b,a,c) || !isSlideValid(c,b,a)){
+       27:   38:		return "Not a triangle";
+        -:   39:	}
+        -:   40:
+       25:   41:	if(a == b || b == c || a == c){
+       23:   42:		if(a == b && b == c){
+        6:   43:			return "Equilateral";   
+        -:   44:		}
+       17:   45:		return "Isosceles";
+        -:   46:	}
+        -:   47:	
+        2:   48:	return "Scalene";
+        -:   49:}
