@@ -14,7 +14,7 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = ..
+GTEST_DIR = ../../googletest/googletest
 
 # Where to find user code.
 #../samples
@@ -24,6 +24,9 @@ USER_DIR = ./
 # Set Google Test's header directory as a system directory, such that
 # the compiler doesn't generate warnings in Google Test headers.
 CPPFLAGS += -isystem $(GTEST_DIR)/include
+
+# Combine with gcov
+GCOVFLAGS += -fprofile-arcs -ftest-coverage
 
 # Flags passed to the C++ compiler.
 CXXFLAGS += -g -Wall -Wextra -pthread
@@ -73,11 +76,17 @@ gtest_main.a : gtest-all.o gtest_main.o
 # function.
 
 next_date.o : $(USER_DIR)/next_date.cc $(USER_DIR)/next_date.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/next_date.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -c $(USER_DIR)/next_date.cc
 
 next_date_unittest.o : $(USER_DIR)/next_date_unittest.cc \
                      $(USER_DIR)/next_date.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/next_date_unittest.cc
 
 next_date_unittest : next_date.o next_date_unittest.o gtest_main.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(GCOVFLAGS) -lpthread $^ -o $@
+
+test : next_date_unittest
+	./next_date_unittest
+
+gcov : next_date_unittest
+	gcov next_date_unittest.cc

@@ -1,0 +1,25 @@
+language: cpp
+
+os:
+  - linux
+compiler:
+  - g++
+install:
+  - sudo pip install codecov
+script:
+  - make -C ./hw1/Triangle 
+  - make -C ./hw1/Triangle test
+  - make -C ./hw1/Triangle gcov
+
+  - make -C ./hw1/NextDate 
+  - make -C ./hw1/NextDate test
+  - make -C ./hw1/NextDate gcov
+
+  - make -C ./hw1/CommissionProblem 
+  - make -C ./hw1/CommissionProblem test
+  - make -C ./hw1/CommissionProblem gcov
+branches:
+  only:
+    - master
+after_success:
+  - codecov -X gcov
