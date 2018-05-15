@@ -2,7 +2,7 @@
 #include "commission.h"
 #include "gtest/gtest.h"
 namespace {
-	TEST(BoundaryValue, RobustWorstCase){
+    TEST(BoundaryValue, RobustWorstCase){
         EXPECT_EQ("Invalid items' amount", calcCommission(0, 0, 0));
         EXPECT_EQ("Invalid items' amount", calcCommission(0, 0, 1));
         EXPECT_EQ("Invalid items' amount", calcCommission(0, 0, 2));
@@ -370,5 +370,9 @@ namespace {
     TEST(EdgeValue, TestCase){
         EXPECT_EQ("Program terminates", calcCommission(-1, 40, 45));
         EXPECT_EQ("Invalid items' amount", calcCommission(-2, 40, 45));
+    }
+
+    TEST(PathTesting, ConditionCoverage){
+        
     }
 }

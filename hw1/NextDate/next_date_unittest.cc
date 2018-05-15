@@ -131,4 +131,14 @@ namespace {
 	TEST(PathTesting, LineCoverage) {
 		EXPECT_EQ("3,1,1980", getNextDate(2,29,1980));
 	}
+
+	TEST(PathTesting, ConditionCoverage){
+   		EXPECT_EQ("3,16,2001", getNextDate(3,15,2001));
+ 		EXPECT_EQ("5,16,2001", getNextDate(5,15,2001));
+   		EXPECT_EQ("8,16,2001", getNextDate(8,15,2001));
+   		EXPECT_EQ("10,16,2001", getNextDate(10,15,2001));
+   		
+   		EXPECT_EQ("3,1,1901", getNextDate(2,28,1901));
+   		EXPECT_EQ("3,1,2004", getNextDate(2,29,2004));        
+    }
 }
