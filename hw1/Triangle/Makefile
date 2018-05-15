@@ -89,4 +89,4 @@ test : triangle_unittest
 	./triangle_unittest
 
 gcov : triangle_unittest
-	gcov triangle.cc
+	gcov -b triangle.cc

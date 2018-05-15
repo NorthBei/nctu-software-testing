@@ -89,4 +89,4 @@ test : commission_unittest
 	./commission_unittest
 
 gcov : commission_unittest
-	gcov commission.cc
+	gcov -b commission.cc

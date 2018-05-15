@@ -127,4 +127,8 @@ namespace {
 		EXPECT_EQ("Invalid input date", getNextDate(2,30,2001));
 
 	}
+
+	TEST(PathTesting, LineCoverage) {
+		EXPECT_EQ("3,1,1980", getNextDate(2,29,1980));
+	}
 }

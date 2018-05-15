@@ -1,0 +1,17 @@
+#for googletest
+hw1/*/gtest.a
+hw1/*/gtest_main.a 
+
+#for clang
+*.o 
+
+#for gcov
+*.gcov 
+*.gcda
+*.gcno
+
+#for unittest
+
+hw1/CommissionProblem/commission_unittest
+hw1/Triangle/triangle_unittest
+hw1/NextDate/next_date_unittest
